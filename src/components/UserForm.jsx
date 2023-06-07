@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+
 
 const UserForm = () => {
     // setting state for each input
@@ -85,45 +88,45 @@ const UserForm = () => {
     return (
         <>
             <h1>Please Fill Out Form</h1>
-            <form>
-                <div>
-                    <label>First Name: </label>
-                    <input type="text" value={firstName} onChange={handleFirstName} />
-                    {<p style={{ color: "red" }} >{nameError && nameError}</p>}
+
+            <div className="card" style={{ maxWidth: '700px', margin: '0 auto' }}>
+                <div className="card-body">
+                    <form>
+                        <div className="mb-3">
+                            <label htmlFor="firstName" className="form-label">First Name:</label>
+                            <input type="text" className="form-control" id="firstName" value={firstName} onChange={handleFirstName} />
+                            {<p className="text-danger">{nameError}</p>}
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="lastName" className="form-label">Last Name:</label>
+                            <input type="text" className="form-control" id="lastName" value={lastName} onChange={handleLastName} />
+                            {<p className="text-danger">{nameError}</p>}
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="email" className="form-label">Email:</label>
+                            <input type="email" className="form-control" id="email" value={email} onChange={handleEmail} />
+                            {<p className="text-danger">{emailError}</p>}
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="password" className="form-label">Password:</label>
+                            <input type="password" className="form-control" id="password" onChange={handlePassword} />
+                            {<p className="text-danger">{passwordError}</p>}
+                        </div>
+                        <div className="mb-3">
+                            <label htmlFor="confirmPassword" className="form-label">Confirm Password:</label>
+                            <input type="password" className="form-control" id="confirmPassword" onChange={handleConfirmPassword} />
+                            {<p className="text-danger">{confirmPasswordError}</p>}
+                        </div>
+                    </form>
                 </div>
-                <div>
-                    <label>Last Name: </label>
-                    <input type="text" value={lastName} onChange={handleLastName} />
-                    {<p style={{ color: "red" }} >{nameError && nameError}</p>}
-
-                </div>
-                <div>
-                    <label>Email: </label>
-                    <input type="text" value={email} onChange={handleEmail} />
-                    {<p style={{ color: "red" }} >{emailError && emailError}</p>}
-                </div>
-                <div>
-                    <label>Password: </label>
-                    <input type="text" onChange={handlePassword} />
-                    {<p style={{ color: "red" }} >{passwordError && passwordError}</p>}
-
-                </div>
-                <div>
-                    <label>Confirm Password: </label>
-                    <input type="text" onChange={handleConfirmPassword} />
-                    {<p style={{ color: "red" }} >{confirmPasswordError && confirmPasswordError}</p>}
-
-                </div>
-
-
-
-            </form>
+            </div>
             <div>
                 <p>First Name: {firstName}</p>
                 <p>Last Name: {lastName}</p>
                 <p>Email: {email}</p>
                 <p>Password: {password}</p>
             </div>
+
         </>
     );
 
